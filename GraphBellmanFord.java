@@ -13,8 +13,8 @@ public class GraphBellmanFord {
         int distance[] = new int[this.num_v];
         boolean hasNegativeCycle = getShortestPaths(num_v, raiz, distance, arestas);
         if (!hasNegativeCycle) {
-            System.out.println("Vertex \t: Distance");
-            for (int i = 1; i < distance.length; i++)
+            System.out.println("\t\tVertex \t: Distance");
+            for (int i = 0; i < distance.length; i++)
                 System.out.println("\t" + i + " " + "\t\t" + (distance[i] == Integer.MAX_VALUE ? "-" : distance[i]));
         } else {
             System.out.println("Negative cycle exists in the graph, no solution found!!!");
@@ -32,7 +32,7 @@ public class GraphBellmanFord {
         distance[source] = 0;
 
         // RELAXAMENTO
-        for (int i = 1; i < V; i++) {
+        for (int i = 0; i < V; i++) {
             // iterate over edges
             for (Edge e : edges) {
                 int u = e.getU(), v = e.getV(), w = e.getW();

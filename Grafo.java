@@ -9,8 +9,9 @@ class Graph{
     private Vector<Edge> arestas;
 
     Graph(int vertices){
-        num_vertices = vertices;
-        adj = new LinkedList[vertices];
+        this.num_vertices = vertices;
+        this.adj = new LinkedList[vertices];
+        this.arestas = new Vector<Edge>();
 
         for (int i=0; i<vertices; i++){
             adj[i] = new LinkedList<>();    
@@ -23,7 +24,8 @@ class Graph{
 
     public void addAresta(int origem,int destino, int peso){
         adj[origem].add(destino);
-        arestas.add(new Edge(origem, destino, peso));           
+        Edge a = new Edge(origem, destino, peso);
+        arestas.add(a);           
     }
 
     public void DFS(int raiz){
