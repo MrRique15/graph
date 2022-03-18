@@ -6,10 +6,11 @@ class Graph{
     private Queue<Integer> queue;                   
     private GraphDFS dfs;
     private GraphBFS bfs;
+    private Vector<Edge> arestas;
 
     Graph(int vertices){
         num_vertices = vertices;
-        adj = new LinkedList[vertices];     
+        adj = new LinkedList[vertices];
 
         for (int i=0; i<vertices; i++){
             adj[i] = new LinkedList<>();    
@@ -21,7 +22,8 @@ class Graph{
     }
 
     public void addAresta(int origem,int destino, int peso){
-        adj[origem].add(destino);                   
+        adj[origem].add(destino);
+        arestas.add(new Edge(origem, destino, peso));           
     }
 
     public void DFS(int raiz){
@@ -30,5 +32,10 @@ class Graph{
 
     public void BFS(int raiz){
         bfs.buscaBFS(raiz);
+    }
+
+    public void BellmanFord(int raiz){
+        GraphBellmanFord bellman = new GraphBellmanFord(num_vertices, arestas);
+        bellman.BellmanFord(raiz);
     }
 }
