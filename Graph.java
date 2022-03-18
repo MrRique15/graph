@@ -49,5 +49,9 @@ class Graph{
     public void Dijkstra(Graph g, Node raiz){
         GraphDijkstra dijkstra = new GraphDijkstra();
         dijkstra.calculateShortestPathFromSource(g, raiz);
+
+        for (Node n : nodes) {
+            System.out.println(n.getName() + " " + n.getDistance());
+        }
     }
 }
