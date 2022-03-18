@@ -1,8 +1,6 @@
 import java.util.*;
 
 class GraphDijkstra {
-    
-    
     public Graph calculateShortestPathFromSource(Graph graph, Node source) {
         source.setDistance(0);
         Set<Node> settledNodes = new HashSet<>();

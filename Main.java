@@ -62,5 +62,8 @@ public class Main {
         System.out.println("\nO Algoritmo de BellmanFord para o grafo acima é: ");
 
         grafo.BellmanFord(0);
+
+        System.out.println("\nO Algoritmo de Dijkstra para o grafo acima é: ");
+        grafo.Dijkstra(grafo, nodeA);
     }
 }

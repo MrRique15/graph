@@ -32,7 +32,7 @@ class Graph{
     public void addNode(Node nodeA) {
         nodes.add(nodeA);
     }
-    
+
     public void DFS(int raiz){
         dfs.buscaDFS(raiz);
     }
@@ -44,5 +44,10 @@ class Graph{
     public void BellmanFord(int raiz){
         GraphBellmanFord bellman = new GraphBellmanFord(num_vertices, arestas);
         bellman.BellmanFord(raiz);
+    }
+
+    public void Dijkstra(Graph g, Node raiz){
+        GraphDijkstra dijkstra = new GraphDijkstra();
+        dijkstra.calculateShortestPathFromSource(g, raiz);
     }
 }
