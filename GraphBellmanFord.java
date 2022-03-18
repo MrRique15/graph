@@ -1,6 +1,6 @@
 import java.util.Vector;
 
-public class GraphBellmanFord {
+class GraphBellmanFord {
     private int num_v = 0;
     private Vector<Edge> arestas;
 
@@ -13,7 +13,7 @@ public class GraphBellmanFord {
         int distance[] = new int[this.num_v];
         boolean hasNegativeCycle = getShortestPaths(num_v, raiz, distance, arestas);
         if (!hasNegativeCycle) {
-            System.out.println("\t\tVertex \t: Distance");
+            System.out.println("\tVertex \t: Distance");
             for (int i = 0; i < distance.length; i++)
                 System.out.println("\t" + i + " " + "\t\t" + (distance[i] == Integer.MAX_VALUE ? "-" : distance[i]));
         } else {

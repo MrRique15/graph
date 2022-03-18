@@ -1,4 +1,4 @@
-public class Edge {
+class Edge {
     private int u;
     private int v;
     private int w;

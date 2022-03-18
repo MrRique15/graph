@@ -7,6 +7,7 @@ class Graph{
     private GraphDFS dfs;
     private GraphBFS bfs;
     private Vector<Edge> arestas;
+    private Set<Node> nodes = new HashSet<>();
 
     Graph(int vertices){
         this.num_vertices = vertices;
@@ -28,6 +29,10 @@ class Graph{
         arestas.add(a);           
     }
 
+    public void addNode(Node nodeA) {
+        nodes.add(nodeA);
+    }
+    
     public void DFS(int raiz){
         dfs.buscaDFS(raiz);
     }
