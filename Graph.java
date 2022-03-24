@@ -33,19 +33,23 @@ class Graph{
         nodes.add(nodeA);
     }
 
+    //Profundidade
     public void DFS(int raiz){
         dfs.buscaDFS(raiz);
     }
 
+    //Largura
     public void BFS(int raiz){
         bfs.buscaBFS(raiz);
     }
 
+    //Bellman Ford
     public void BellmanFord(int raiz){
         GraphBellmanFord bellman = new GraphBellmanFord(num_vertices, arestas);
         bellman.BellmanFord(raiz);
     }
 
+    //Dijkstra
     public void Dijkstra(Graph g, Node raiz){
         GraphDijkstra dijkstra = new GraphDijkstra();
         dijkstra.calculateShortestPathFromSource(g, raiz);

@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String args[])
     {
+        //Grafo inicial de backup para todas as buscas//
         Graph grafo = new Graph(6);    //Cria a instancia do grafo com 6 vértices
         
         //Cria os vértices do grafo
@@ -18,9 +19,11 @@ public class Main {
         //1
         nodeB.addDestination(nodeA, 1);
         nodeB.addDestination(nodeB, 1);
+        nodeB.addDestination(nodeC, 1);
 
         //2
         nodeC.addDestination(nodeB, 1);
+        nodeC.addDestination(nodeD, 1);
         //3
         nodeD.addDestination(nodeB, 1);
         nodeD.addDestination(nodeF, 1);
@@ -51,19 +54,25 @@ public class Main {
         grafo.addNode(nodeD);
         grafo.addNode(nodeE);
         grafo.addNode(nodeF);
+
+        Graph forBS = grafo;
         System.out.println("A busca em largura para o grafo acima é: ");
- 
-        grafo.BFS(0);
+        //Largura
+        forBS.BFS(0);
 
+        Graph forDFS = grafo;
         System.out.println("\nA busca em profundidade para o grafo acima é: ");
+        //Profundidade
+        forDFS.DFS(0);
 
-        grafo.DFS(0);
-
+        Graph forBellmanFord = grafo;
         System.out.println("\nO Algoritmo de BellmanFord para o grafo acima é: ");
+        //BellmanFord
+        forBellmanFord.BellmanFord(0);
 
-        grafo.BellmanFord(0);
-
+        Graph forDijkstra = grafo;
         System.out.println("\nO Algoritmo de Dijkstra para o grafo acima é: ");
-        grafo.Dijkstra(grafo, nodeA);
+        //Dijkstra
+        forDijkstra.Dijkstra(grafo, nodeA);
     }
 }
