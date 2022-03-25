@@ -23,6 +23,10 @@ class Graph{
         this.bfs = new GraphBFS(num_vertices, adj, queue);
     }
 
+    public int getVertices(){
+        return this.num_vertices;
+    }
+
     public void addAresta(int origem,int destino, int peso){
         adj[origem].add(destino);
         Edge a = new Edge(origem, destino, peso);
@@ -57,5 +61,10 @@ class Graph{
         for (Node n : nodes) {
             System.out.println(n.getName() + " " + n.getDistance());
         }
+    }
+
+    public void FloydWarshal(Graph g){
+        GraphFloydWarshal floydWarshal = new GraphFloydWarshal();
+        floydWarshal.getFloydWarshall(g, this.num_vertices, this.arestas, nodes);
     }
 }

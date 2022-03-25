@@ -5,22 +5,21 @@ public class Main {
         Graph grafo = new Graph(6);    //Cria a instancia do grafo com 6 vértices
         
         //Cria os vértices do grafo
-        Node nodeA = new Node("A");
-        Node nodeB = new Node("B");
-        Node nodeC = new Node("C");
-        Node nodeD = new Node("D"); 
-        Node nodeE = new Node("E");
-        Node nodeF = new Node("F");
+        Node nodeA = new Node("A",0);
+        Node nodeB = new Node("B",1);
+        Node nodeC = new Node("C",2);
+        Node nodeD = new Node("D",3); 
+        Node nodeE = new Node("E",4);
+        Node nodeF = new Node("F",5);
 
+        //Adiciona os destinos aos vértices criados com seus pesos das arestas
         //0
-        nodeA.addDestination(nodeB, 1);
+        nodeA.addDestination(nodeB, 10);
         nodeA.addDestination(nodeD, 1);
         nodeA.addDestination(nodeE, 1);
         //1
         nodeB.addDestination(nodeA, 1);
-        nodeB.addDestination(nodeB, 1);
         nodeB.addDestination(nodeC, 1);
-
         //2
         nodeC.addDestination(nodeB, 1);
         nodeC.addDestination(nodeD, 1);
@@ -35,7 +34,7 @@ public class Main {
         nodeF.addDestination(nodeE, 1);
 
         //Adiciona arestas para o grafo orientado
-        grafo.addAresta(0, 1, 1);               
+        grafo.addAresta(0, 1, 10);               
         grafo.addAresta(0, 3, 1);
         grafo.addAresta(0, 4, 1);
         grafo.addAresta(4, 5, 1);
@@ -48,6 +47,7 @@ public class Main {
         grafo.addAresta(5, 4, 1);
         grafo.addAresta(5, 3, 1);
 
+        //Adiciona os vértices criados ao grafo orientado
         grafo.addNode(nodeA);
         grafo.addNode(nodeB);
         grafo.addNode(nodeC);
@@ -73,6 +73,11 @@ public class Main {
         Graph forDijkstra = grafo;
         System.out.println("\nO Algoritmo de Dijkstra para o grafo acima é: ");
         //Dijkstra
-        forDijkstra.Dijkstra(grafo, nodeA);
+        forDijkstra.Dijkstra(forDijkstra, nodeA);
+
+        Graph forFLoydWarshal = grafo;
+        System.out.println("\nO Algoritmo de FLoydWarshal para o grafo acima é: ");
+        //FLoydWarshal
+        forFLoydWarshal.FloydWarshal(forFLoydWarshal);
     }
 }

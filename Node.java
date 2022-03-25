@@ -5,13 +5,19 @@ class Node {
     private List<Node> shortestPath = new LinkedList<>();
     private Integer distance = Integer.MAX_VALUE;
     private Map<Node, Integer> adjacentNodes = new HashMap<>();
+    private int number;
 
-    public Node(String name) {
+    public Node(String name, int num) {
         this.name = name;
+        this.number = num;
     }
 
     public String getName() {
         return name;
+    }
+    
+    public int getNumber() {
+        return number;
     }
     
     public void addDestination(Node destination, int distance) {
