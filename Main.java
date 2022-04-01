@@ -1,53 +1,41 @@
 public class Main {
     public static void main(String args[])
     {
+
+        //-----------------------------------------------------------------------------//
+        //-----                       Instanciação do GRAFO                       -----//
+        //-----------------------------------------------------------------------------//
         //Grafo inicial de backup para todas as buscas//
-        Graph grafo = new Graph(6);    //Cria a instancia do grafo com 6 vértices
-        
-        //Cria os vértices do grafo
+        Graph grafo = new Graph(6);    //Cria a instancia do grafo com n=6 vértices
+
+        //Cria os vértices do grafo (Nome, Número)//
         Node nodeA = new Node("A",0);
         Node nodeB = new Node("B",1);
         Node nodeC = new Node("C",2);
         Node nodeD = new Node("D",3); 
         Node nodeE = new Node("E",4);
         Node nodeF = new Node("F",5);
-
-        //Adiciona os destinos aos vértices criados com seus pesos das arestas
+        //Adiciona os destinos aos vértices criados com seus pesos nas arestas
         //0
-        nodeA.addDestination(nodeB, 10);
-        nodeA.addDestination(nodeD, 1);
-        nodeA.addDestination(nodeE, 1);
+        nodeA.addDestination(nodeB, 10, grafo);
+        nodeA.addDestination(nodeD, 1, grafo);
+        nodeA.addDestination(nodeE, 1, grafo);
         //1
-        nodeB.addDestination(nodeA, 1);
-        nodeB.addDestination(nodeC, 1);
+        nodeB.addDestination(nodeA, 1, grafo);
+        nodeB.addDestination(nodeC, 1, grafo);
         //2
-        nodeC.addDestination(nodeB, 1);
-        nodeC.addDestination(nodeD, 1);
+        nodeC.addDestination(nodeB, 1, grafo);
+        nodeC.addDestination(nodeD, 1, grafo);
         //3
-        nodeD.addDestination(nodeB, 1);
-        nodeD.addDestination(nodeF, 1);
+        nodeD.addDestination(nodeB, 1, grafo);
+        nodeD.addDestination(nodeF, 1, grafo);
         //4
-        nodeE.addDestination(nodeB, 1);
-        nodeE.addDestination(nodeF, 1);
+        nodeE.addDestination(nodeB, 1, grafo);
+        nodeE.addDestination(nodeF, 1, grafo);
         //5
-        nodeF.addDestination(nodeD, 1);
-        nodeF.addDestination(nodeE, 1);
-
-        //Adiciona arestas para o grafo orientado
-        grafo.addAresta(0, 1, 10);               
-        grafo.addAresta(0, 3, 1);
-        grafo.addAresta(0, 4, 1);
-        grafo.addAresta(4, 5, 1);
-        grafo.addAresta(3, 5, 1);
-        grafo.addAresta(1, 2, 1);
-        grafo.addAresta(1, 0, 1);
-        grafo.addAresta(2, 1, 1);
-        grafo.addAresta(4, 1, 1);
-        grafo.addAresta(3, 1, 1);
-        grafo.addAresta(5, 4, 1);
-        grafo.addAresta(5, 3, 1);
-
-        //Adiciona os vértices criados ao grafo orientado
+        nodeF.addDestination(nodeD, 1, grafo);
+        nodeF.addDestination(nodeE, 1, grafo);
+        //Adiciona a estrutura dos vértces ao grafo original
         grafo.addNode(nodeA);
         grafo.addNode(nodeB);
         grafo.addNode(nodeC);
@@ -55,18 +43,24 @@ public class Main {
         grafo.addNode(nodeE);
         grafo.addNode(nodeF);
 
+
+
+
+        //-----------------------------------------------------------------------------//
+        //-----                  Buscas para o GRAFO informado                    -----//
+        //-----------------------------------------------------------------------------//
         Graph forBS = grafo;
-        System.out.println("A busca em largura para o grafo acima é: ");
+        System.out.println("\nA busca em largura para o grafo acima é: ");
         //Largura
         forBS.BFS(0);
 
         Graph forDFS = grafo;
-        System.out.println("\nA busca em profundidade para o grafo acima é: ");
+        System.out.println("\n\nA busca em profundidade para o grafo acima é: ");
         //Profundidade
         forDFS.DFS(0);
 
         Graph forBellmanFord = grafo;
-        System.out.println("\nO Algoritmo de BellmanFord para o grafo acima é: ");
+        System.out.println("\n\nO Algoritmo de BellmanFord para o grafo acima é: ");
         //BellmanFord
         forBellmanFord.BellmanFord(0);
 

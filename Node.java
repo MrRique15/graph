@@ -20,8 +20,9 @@ class Node {
         return number;
     }
     
-    public void addDestination(Node destination, int distance) {
+    public void addDestination(Node destination, int distance, Graph grafo) {
         adjacentNodes.put(destination, distance);
+        grafo.addAresta(this.number, destination.getNumber(), distance);
     }
     
     public void setDistance(int distance) {
