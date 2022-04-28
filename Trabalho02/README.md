@@ -7,7 +7,7 @@ Nesse projeto, temos um Grafo não orientado e com fluxo (peso), definidos para 
 
 <br/>
 Para a instância do grafo dentro do arquivo MAIN, deve-se preencher:
-
+<br/>
 1) int raiz = X0;
   <p>1.1) A raíz do caminho à ser operado.</p>
 <br/>
