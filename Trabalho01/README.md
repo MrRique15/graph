@@ -10,7 +10,7 @@ Nesse projeto, temos um Grafo orientado e com pesos definidos para suas arestas,
 
 <br/>
 Para a instância do grafo dentro do arquivo MAIN, deve-se preencher:
-
+<br/>
 1) Graph grafo = new Graph(**n**);
   <p>1.1) n é o número de vértices do grafo;</p>
 <br/>
